@@ -1,0 +1,9 @@
+# Replace USERNAME with your username and rename this file to backend.tf
+
+terraform {
+  backend "s3" {
+    bucket = "noths-lab-recruitment-terraform"
+    key    = "states/USERNAME/terraform.state"
+    region = "eu-west-1"
+  }
+}

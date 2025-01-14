@@ -1,0 +1,10 @@
+{
+  "event_domain": "checkout",
+  "event_name": "checkout_created",
+  "event_id": "0f1a5f63-1234-abcd-efef-8a574a44e594",
+  "event_attributes": {
+    "basket_id": 1000,
+    "user_id": 1000
+  },
+  "timestamp": "2025-01-07T09:10:00Z"
+}
