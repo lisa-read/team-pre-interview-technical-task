@@ -36,7 +36,7 @@ Alternatively, you can contact me by email which I tend to check once per day.
 
 1. Clone this repository
 2. Implement your solution using Terraform
-3. Use the AWS credentials we provided to plan & apply your changes
+3. Use the AWS credentials we provided to plan & apply your changes into our AWS account
 4. Keep the resources provisioned and provide us a link to a Git public repository with your final solution
 
 ⏱️ Your solution must be provided within 3 working days of receipt of this test.
