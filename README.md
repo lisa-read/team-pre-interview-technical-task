@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Assistance / Support](#assistance--support)
+- [Instructions](#instructions)
 - [Technical Task](#technical-task)
   - [Implement EventBridge pipes \& rules](#implement-eventbridge-pipes--rules)
 - [AWS Resources provided](#aws-resources-provided)
@@ -30,6 +31,21 @@ Alternatively, you can contact me by email which I tend to check once per day.
 
 [client]: https://aws.amazon.com/chime/download-chime
 [webapp]: https://app.chime.aws
+
+## Instructions
+
+1. Clone this repository
+2. Implement your solution using Terraform
+3. Use the AWS credentials we provided to plan & apply your changes
+4. Keep the resources provisioned and provide us a link to a Git public repository with your final solution
+
+⏱️ Your solution must be provided within 3 working days of receipt of this test.
+
+**Helpful tips**
+
+* This README contains some useful information that can help you if you're stuck.
+* Do not overthink your solution; keep it reasonable simple.
+* If you struggle completing the test, explain what you couldn't get working and the steps you took to solve them problem. Whilst we want to see completed tests it is just as important for us to see how you approached an issue and attempted to find a solution.
 
 ## Technical Task
 
