@@ -55,7 +55,7 @@ Using [Amazon EventBridge pipes][docs], your task will be to receive & send mess
 
 [docs]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html
 
-Here is a diagram of the resources we are asking you to implement. The resources with a dotted border are missing and for your to provision with Terraform.
+Here is a diagram of the resources we are asking you to implement. The resources with a dotted border are missing and for you to provision with Terraform.
 
 ```mermaid
 flowchart LR
