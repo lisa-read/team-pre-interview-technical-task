@@ -94,14 +94,14 @@ Please refer to our email to find a link to access your credentials.
 
 ### Setting up your environment
 
-Your first step will be to setup your local environment and to configure the credentials of them IAM user we provided, to allow you to develop and deploy a Terraform stack from our local environment.
+Your first step will be to setup your local environment and to configure the credentials of the IAM user we provided, to allow you to develop and deploy a Terraform stack from our local environment.
 
 ℹ️ We kindly asked that you keep using **S3 as backend** to allow us to plan, apply and destroy your stack at the end of your interview.
 We have provided all the details to configure your backend in `backend.tf.dist`.
 
 ### Your IAM User & permissions
 
-Your IAM user should have all the necessary IAM policies to complete this task provided you **prefix the resources you create with the username of your IAM user** (e.g. *hello-world-purchase-events-processor*). Otherwise Terraform will fail to plan or apply your changes as the IAM policies assigned to your IAM user only grant access to AWS resources prefixed with `IAM_USERNAME-` or `/IAM_USERNAME/` for LogGroups.
+Your IAM user should have all the necessary IAM policies to complete this task provided that you **prefix the resources you create with the username of your IAM user** (e.g. *hello-world-purchase-events-processor*). Otherwise Terraform will fail to plan or apply your changes as the IAM policies assigned to your IAM user only grant access to AWS resources prefixed with `IAM_USERNAME-` or `/IAM_USERNAME/` for LogGroups.
 
 You may find however that your IAM user is lacking an AWS access key which you will most likely need to configure your AWS CLI and assume this user with Terraform. That's for you to do.
 
@@ -181,7 +181,7 @@ Which should return the following output:
 }
 ```
 
-### Troubleshooting & Advices
+### Troubleshooting & Advice
 
 Here are a few recommandations from us to help you avoid some pitfalls:
 
