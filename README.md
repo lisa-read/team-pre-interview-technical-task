@@ -9,7 +9,7 @@
   - [Setting up your environment](#setting-up-your-environment)
   - [Your IAM User \& permissions](#your-iam-user--permissions)
   - [Testing your implementation](#testing-your-implementation)
-  - [Troubleshooting \& Advices](#troubleshooting--advices)
+  - [Troubleshooting \& Advice](#troubleshooting--advice)
 - [Helper scripts](#helper-scripts)
   - [send-mock-events.sh](#send-mock-eventssh)
   - [watch-sqs-queue.sh](#watch-sqs-queuesh)
@@ -37,6 +37,8 @@ Alternatively, you can contact me by email which I tend to check once per day.
 1. Clone this repository
 2. Implement your solution using Terraform
 3. Use the AWS credentials we provided to plan & apply your changes into our AWS account
+   1. Deploy your changes in the region `eu-west-1`
+   2. Always prefix the name of your resources with your username (eg. `USERNAME-something` or `/USERNAME/something` for AWS LogGroups)
 4. Keep the resources provisioned and provide us a link to a Git public repository with your final solution
 
 ⏱️ Your solution must be provided within 3 working days of receipt of this test.
@@ -80,14 +82,14 @@ flowchart LR
 
 ## AWS Resources provided
 
-To help you, we have already provisioned a set of AWS resources into one of our AWS account. This AWS account (ID 536697261635) has been created specifically for this exercise. As it is shared with other candidates, always make sure to prefix the AWS resources you create with your username.
+To help you, we have already provisioned a set of AWS resources into one of our AWS account. This AWS account (ID 536697261635) has been created specifically for this exercise. As this account is shared with other candidates, make sure you read the section below detailing the IAM permissions you have been granted and how to name your resources.
 
-| Resource type        | ARN                                                                        |
-|----------------------|----------------------------------------------------------------------------|
-| SNS topic            | arn:aws:sns:eu-west-1:536697261635:IAM_USERNAME-basket-events              |
-| SNS topic            | arn:aws:sns:eu-west-1:536697261635:IAM_USERNAME-checkouts-events           |
-| Cloudwatch Event Bus | arn:aws:events:eu-west-1:536697261635:event-bus/IAM_USERNAME-domain-events |
-| IAM User             | arn:aws:iam::536697261635:user/IAM_USERNAME                                |
+| Resource type        | ARN                                                                           |
+|----------------------|-------------------------------------------------------------------------------|
+| SNS topic            | arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-basket-events              |
+| SNS topic            | arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-checkouts-events           |
+| Cloudwatch Event Bus | arn:aws:events:eu-west-1:536697261635:event-bus/${IAM_USERNAME}-domain-events |
+| IAM User             | arn:aws:iam::536697261635:user/${IAM_USERNAME}                                |
 
 🔑 You can access this AWS account using the login credentials we have shared with you via 1password.
 Please refer to our email to find a link to access your credentials.
@@ -101,7 +103,7 @@ We have provided all the details to configure your backend in `backend.tf.dist`.
 
 ### Your IAM User & permissions
 
-Your IAM user should have all the necessary IAM policies to complete this task provided that you **prefix the resources you create with the username of your IAM user** (e.g. *hello-world-purchase-events-processor*). Otherwise Terraform will fail to plan or apply your changes as the IAM policies assigned to your IAM user only grant access to AWS resources prefixed with `IAM_USERNAME-` or `/IAM_USERNAME/` for LogGroups.
+Your IAM user should have all the necessary IAM policies to complete this task provided that you **prefix the resources you create with the username of your IAM user** (e.g. *hello-world-purchase-events-processor*). Otherwise Terraform will fail to plan or apply your changes as the IAM policies assigned to your IAM user only grant access to AWS resources prefixed with `USERNAME-` or `/USERNAME/` for LogGroups.
 
 You may find however that your IAM user is lacking an AWS access key which you will most likely need to configure your AWS CLI and assume this user with Terraform. That's for you to do.
 
@@ -113,21 +115,21 @@ Within this repository, you will find a set of JSON files that can be used to se
 
 ```sh
 aws sns publish \
-  --topic-arn arn:aws:sns:eu-west-1:536697261635:IAM_USERNAME-basket-events \
+  --topic-arn arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-basket-events \
   --message file://example-sns-events/basket-updated-event.json
 
 aws sns publish \
-  --topic-arn arn:aws:sns:eu-west-1:536697261635:IAM_USERNAME-checkout-events \
+  --topic-arn arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-checkout-events \
   --message file://example-sns-events/checkout-created-event.json
 
 # You can also use this helper script
-scripts/send-mock-events.sh IAM_USERNAME
+scripts/send-mock-events.sh ${IAM_USERNAME}
 ```
 
 If your resources are correctly configured, you should be able to receive messages as follows:
 
 ```sh
-scripts/watch-sqs-queue.sh IAM_USERNAME-purchase-events-processor
+scripts/watch-sqs-queue.sh ${IAM_USERNAME}-purchase-events-processor
 ```
 
 Which should return the following output:
