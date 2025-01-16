@@ -61,12 +61,12 @@ Here is a diagram of the resources we are asking you to implement. The resources
 
 ```mermaid
 flowchart LR
-  topic1(SNS Topic<br>IAM_USERNAME-basket-events):::Provided
-  topic2(SNS Topic<br>IAM_USERNAME-checkout-events):::Provided
+  topic1(SNS Topic<br>USERNAME-basket-events):::Provided
+  topic2(SNS Topic<br>USERNAME-checkout-events):::Provided
   pipe1(AWS Pipe 1):::ToImplement
   pipe2(AWS Pipe 2):::ToImplement
-  queue3(SQS Queue<br>IAM_USERNAME-purchase-events):::ToImplement
-  eventbus(Event Bus<br>IAM_USERNAME-domain-events):::Provided@{ shape: das }
+  queue3(SQS Queue<br>USERNAME-purchase-events):::ToImplement
+  eventbus(Event Bus<br>USERNAME-domain-events):::Provided@{ shape: das }
   eventrule(Cloudwatch<br>Event Rule):::ToImplement
 
   topic1-->pipe1
@@ -86,10 +86,10 @@ To help you, we have already provisioned a set of AWS resources into one of our 
 
 | Resource type        | ARN                                                                           |
 |----------------------|-------------------------------------------------------------------------------|
-| SNS topic            | arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-basket-events              |
-| SNS topic            | arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-checkout-events           |
-| Cloudwatch Event Bus | arn:aws:events:eu-west-1:536697261635:event-bus/${IAM_USERNAME}-domain-events |
-| IAM User             | arn:aws:iam::536697261635:user/${IAM_USERNAME}                                |
+| SNS topic            | arn:aws:sns:eu-west-1:536697261635:USERNAME-basket-events              |
+| SNS topic            | arn:aws:sns:eu-west-1:536697261635:USERNAME-checkout-events           |
+| Cloudwatch Event Bus | arn:aws:events:eu-west-1:536697261635:event-bus/USERNAME-domain-events |
+| IAM User             | arn:aws:iam::536697261635:user/USERNAME                                |
 
 🔑 You can access this AWS account using the login credentials we have shared with you via 1password.
 Please refer to our email to find a link to access your credentials.
