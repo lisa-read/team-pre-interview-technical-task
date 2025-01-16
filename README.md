@@ -62,7 +62,7 @@ Here is a diagram of the resources we are asking you to implement. The resources
 ```mermaid
 flowchart LR
   topic1(SNS Topic<br>IAM_USERNAME-basket-events):::Provided
-  topic2(SNS Topic<br>IAM_USERNAME-checkouts-events):::Provided
+  topic2(SNS Topic<br>IAM_USERNAME-checkout-events):::Provided
   pipe1(AWS Pipe 1):::ToImplement
   pipe2(AWS Pipe 2):::ToImplement
   queue3(SQS Queue<br>IAM_USERNAME-purchase-events):::ToImplement
@@ -87,7 +87,7 @@ To help you, we have already provisioned a set of AWS resources into one of our 
 | Resource type        | ARN                                                                           |
 |----------------------|-------------------------------------------------------------------------------|
 | SNS topic            | arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-basket-events              |
-| SNS topic            | arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-checkouts-events           |
+| SNS topic            | arn:aws:sns:eu-west-1:536697261635:${IAM_USERNAME}-checkout-events           |
 | Cloudwatch Event Bus | arn:aws:events:eu-west-1:536697261635:event-bus/${IAM_USERNAME}-domain-events |
 | IAM User             | arn:aws:iam::536697261635:user/${IAM_USERNAME}                                |
 
@@ -243,7 +243,7 @@ scripts/watch-sqs-queue.sh # lists SQS queues
 scripts/watch-sqs-queue.sh my-queue-name
 scripts/watch-sqs-queue.sh IAM_USERNAME-purchase-events-processor
 scripts/watch-sqs-queue.sh IAM_USERNAME-basket-events
-scripts/watch-sqs-queue.sh IAM_USERNAME-checkouts-events
+scripts/watch-sqs-queue.sh IAM_USERNAME-checkout-events
 ```
 
 ### watch-logs-group.sh
@@ -254,5 +254,5 @@ scripts/watch-logs-group.sh # list log groups
 scripts/watch-logs-group.sh my-logs-groups
 scripts/watch-logs-group.sh IAM_USERNAME-purchase-events-processor
 scripts/watch-logs-group.sh IAM_USERNAME-basket-events
-scripts/watch-logs-group.sh IAM_USERNAME-checkouts-events
+scripts/watch-logs-group.sh IAM_USERNAME-checkout-events
 ```
