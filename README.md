@@ -241,7 +241,7 @@ Usage:
 ```sh
 scripts/watch-sqs-queue.sh # lists SQS queues
 scripts/watch-sqs-queue.sh my-queue-name
-scripts/watch-sqs-queue.sh ${IAM_USERNAME}-purchase-events-processor
+scripts/watch-sqs-queue.sh ${IAM_USERNAME}-purchase-events
 scripts/watch-sqs-queue.sh ${IAM_USERNAME}-basket-events
 scripts/watch-sqs-queue.sh ${IAM_USERNAME}-checkout-events
 ```
@@ -252,7 +252,7 @@ Usage:
 ```sh
 scripts/watch-logs-group.sh # list log groups
 scripts/watch-logs-group.sh my-logs-groups
-scripts/watch-logs-group.sh ${IAM_USERNAME}-purchase-events-processor
+scripts/watch-logs-group.sh ${IAM_USERNAME}-purchase-events
 scripts/watch-logs-group.sh ${IAM_USERNAME}-basket-events
 scripts/watch-logs-group.sh ${IAM_USERNAME}-checkout-events
 ```
