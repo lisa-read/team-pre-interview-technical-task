@@ -129,7 +129,7 @@ scripts/send-mock-events.sh ${IAM_USERNAME}
 If your resources are correctly configured, you should be able to receive messages as follows:
 
 ```sh
-scripts/watch-sqs-queue.sh ${IAM_USERNAME}-purchase-events-processor
+scripts/watch-sqs-queue.sh ${IAM_USERNAME}-purchase-events
 ```
 
 Which should return the following output:
