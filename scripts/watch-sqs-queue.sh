@@ -6,7 +6,7 @@ function get-queue-message-count {
     --attribute-names ApproximateNumberOfMessages \
     --queue-url "https://sqs.eu-west-1.amazonaws.com/536697261635/$QUEUE_NAME" \
     --query "Attributes.ApproximateNumberOfMessages" \
-    --output text
+    --output texts
 }
 
 function receive-message {
@@ -15,14 +15,14 @@ function receive-message {
   local MESSAGE=$(aws sqs receive-message \
     --queue-url "https://sqs.eu-west-1.amazonaws.com/536697261635/$QUEUE_NAME" \
     --wait-time-seconds 20 \
-    --query "Messages[0]"
+    --query "Messages[0]" 
   )
   if [[ "$MESSAGE" != "null" ]]; then
     echo $MESSAGE | jq '.Body | fromjson'
     local RECEIPT_HANDLE=$(echo $MESSAGE | jq -r .ReceiptHandle)
     aws sqs delete-message \
       --queue-url "https://sqs.eu-west-1.amazonaws.com/536697261635/$QUEUE_NAME" \
-      --receipt-handle "$RECEIPT_HANDLE"
+      --receipt-handle "$RECEIPT_HANDLE" 
   fi
 }
 
@@ -40,7 +40,7 @@ fi
 echo >&2 + aws sqs receive-message \
   --queue-url "https://sqs.eu-west-1.amazonaws.com/536697261635/$SQS_QUEUE_NAME" \
   --wait-time-seconds 20 \
-  --query "Messages[0]"
+  --query "Messages[0]" 
 
 while true; do
   receive-message "${SQS_QUEUE_NAME}"

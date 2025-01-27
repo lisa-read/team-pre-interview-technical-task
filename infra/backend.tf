@@ -2,8 +2,9 @@
 
 terraform {
   backend "s3" {
+    profile = "forest-access"
     bucket = "noths-lab-recruitment-terraform"
-    key    = "states/USERNAME/terraform.state"
+    key    = "states/forest-access/terraform.state"
     region = "eu-west-1"
   }
 }
